@@ -29,6 +29,7 @@ Change the domain name in config.json, keeping "/api/nowplaying/1.json". Copy ev
 * Artists
 * Title
 * CoverArt
+* ArtistPhoto
 
 More to come
 

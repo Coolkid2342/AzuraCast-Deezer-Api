@@ -12,6 +12,7 @@ function loadNowPlaying() {
             var Artists = np.data[0].artist.name;
             var Combined = `${Artists} - ${Title}`;
             var CoverArt = np.data[0].album.cover_big;
+            var ArtistPhoto = np.data[0].artist.picture_big;
             $(`#Title`).text(Title);
             $(`#Artists`).text(Artists);
             $(`#Combined`).text(Combined);
@@ -20,9 +21,20 @@ function loadNowPlaying() {
                 var img = document.getElementById("CoverArt");
                 img.src = CoverArt;
                 return
-            };
-            var img = document.getElementById("CoverArt");
-            img.src = CoverArt;
+            } else if (CoverArt[0]) {
+                var img = document.getElementById("CoverArt");
+                img.src = CoverArt;
+            }
+            if (!ArtistPhoto[0]) {
+                var ArtistPhoto = "https://coolkid2342.co.uk/missing.png"
+                var img = document.getElementById("CoverArt");
+                img.src = CoverArt;
+                return
+            } else if (ArtistPhoto[0]) {
+                var img = document.getElementById("CoverArt");
+                img.src = CoverArt;
+                return
+            }
         nowPlayingTimeout = setTimeout(loadNowPlaying, 2000);
         }
     }).fail(function () {
